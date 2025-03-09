@@ -1,0 +1,90 @@
+.docs {
+  font-size: 1em;
+}
+
+.docs a {
+  text-decoration: none;
+}
+
+.docs a:hover {
+  text-decoration: underline;
+}
+
+.docs h1 {
+  font-size: 2em;
+}
+
+.docs h2 {
+  font-size: 1.5em;
+}
+
+.docs h3 {
+  font-size: 1.2em;
+}
+
+.docs h4 {
+  font-size: 1em;
+}
+
+.docs h5 {
+  font-size: 1em;
+}
+
+.docs h6 {
+  font-size: 1em;
+}
+
+.docs h1,
+.docs h2,
+.docs h3,
+.docs h4,
+.docs h5,
+.docs h6 {
+  font-weight: bold;
+  line-height: 1.7;
+  margin: 0 0 15px 0;
+  padding: 0;
+}
+
+.docs h1 + p,
+.docs h2 + p,
+.docs h3 + p {
+  margin-top: 10px;
+}
+
+.docs p {
+  margin: 0 0 20px 0;
+  line-height: 1.8;
+  font-weight: 400;
+  overflow-wrap: break-word;
+}
+
+.docs .markdown-alert {
+  margin-left: 1em;
+}
+
+.docs .markdown-alert p {
+  margin: 0 0 0.8em 0;
+  padding: 0;
+}
+
+.docs a {
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
+
+.docs a:hover {
+  text-decoration: none;
+}
+
+.docs ul li {
+  margin-bottom: 1em;
+  margin-left: 2em;
+  list-style-type: disc;
+  line-height: 1.8;
+}
+
+.docs ul li:last-child {
+  margin-bottom: 1em;
+}

@@ -1,0 +1,33 @@
+{
+  "name": "zpl-js-mono",
+  "version": "1.0.0",
+  "description": "Mono repo for zpl-js",
+  "author": {
+    "name": "Tom Oeste",
+    "email": "tomoeste@gmail.com",
+    "url": "https://www.npmjs.com/~tomoeste"
+  },
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.1.1",
+    "eslint-plugin-react": "^7.37.4",
+    "globals": "^15.15.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.5.3",
+    "typescript-eslint": "^8.24.1"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.12.1",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm"
+  },
+  "packageManager": "pnpm@8.12.1",
+  "scripts": {
+    "prepare": "husky",
+    "verify": "pnpm -r lint && pnpm -r test"
+  }
+}

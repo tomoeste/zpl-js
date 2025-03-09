@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./apps/site/src/*"],
+      "@@/*": ["./packages/playground/src/*"]
+    },
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "zpl-js-listener",
+  "version": "1.0.0",
+  "description": "Proxy ZPL print requests to WebSocket clients",
+  "author": {
+    "name": "Tom Oeste",
+    "email": "tomoeste@gmail.com",
+    "url": "https://www.npmjs.com/~tomoeste"
+  },
+  "keywords": [
+    "zpl",
+    "websocket",
+    "http"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "bin": "index.js",
+  "dependencies": {
+    "commander": "^13.1.0",
+    "uuid": "^11.1.0",
+    "ws": "^8.18.1"
+  }
+}
