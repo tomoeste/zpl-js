@@ -11,7 +11,7 @@ import { Toaster } from "sonner";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/zpl-js">
       <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
         <SiteHeader />
         <Routes>

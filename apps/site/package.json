@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "description": "Docs site and playground for zpl-js",
+  "homepage": "https://tomoeste.github.io/zpl-js",
   "type": "module",
   "author": {
     "name": "Tom Oeste",

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-import { Preset } from "zpl-js-playground/src/data/presets.ts";
+import { Preset } from "@/data/presets.ts";
 
 type LivePrintProps = {
   livePrint: boolean;

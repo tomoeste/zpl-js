@@ -13,4 +13,5 @@ export default defineConfig({
     },
   },
   assetsInclude: ["**/*.md"],
+  base: "/zpl-js/",
 });
