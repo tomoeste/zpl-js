@@ -79,7 +79,7 @@ export function SiteHeader() {
                   rel="noreferrer"
                 >
                   <img
-                    src="/github.svg"
+                    src="/zpl-js/github.svg"
                     alt="GitHub"
                     className="h-5 w-5 dark:invert"
                   />
