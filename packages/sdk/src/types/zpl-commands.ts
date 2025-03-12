@@ -714,11 +714,12 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
   "^FH": {
     name: "Field Hexadecimal Indicator",
     description:
-      "Indicates that the data contains hexadecimal character codes.",
+      "Indicates that the data contains hexadecimal character codes, formatted as _00 for 0x00.",
     format: "",
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Multiple Field Origin Locations */
   "^FM": {

@@ -6,5 +6,6 @@ const config = {
   transform: {
     "^.+.tsx?$": ["ts-jest", {}],
   },
+  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
 };
 export default config;

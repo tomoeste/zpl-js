@@ -24,6 +24,7 @@ export class ZPLParser {
   private currentBlockFormat: TextBlockFormat | undefined;
   private isBarcodeMode = false;
   private isFieldReverseMode = false;
+  private isFieldHexMode = false;
   private barcodeType = "";
   private currentBarcodeOptions:
     | BarcodeCode39Options
@@ -245,7 +246,8 @@ export class ZPLParser {
           data,
           this.currentFont,
           this.currentBlockFormat,
-          this.isFieldReverseMode
+          this.isFieldReverseMode,
+          this.isFieldHexMode
         )
       );
     } else {
@@ -259,13 +261,17 @@ export class ZPLParser {
           this.currentBarcodeOptions,
           this.label.barcodeDefaults,
           this.label,
-          this.isFieldReverseMode
+          this.isFieldReverseMode,
+          this.isFieldHexMode
         )
       );
       this.isBarcodeMode = false;
     }
     if (this.isFieldReverseMode) {
       this.isFieldReverseMode = false;
+    }
+    if (this.isFieldHexMode) {
+      this.isFieldHexMode = false;
     }
   };
 
@@ -275,6 +281,10 @@ export class ZPLParser {
       this.currentX = this.labelHomeX + parseInt(params[0], 10);
       this.currentY = this.labelHomeY + parseInt(params[1], 10);
     }
+  };
+
+  private handleFH = () => {
+    this.isFieldHexMode = true;
   };
 
   private handleFR = () => {
@@ -372,6 +382,7 @@ export class ZPLParser {
     "^BY": this.handleBY,
     "^CF": this.handleCF,
     "^FD": this.handleFD,
+    "^FH": this.handleFH,
     "^FO": this.handleFO,
     "^FR": this.handleFR,
     "^GB": this.handleGB,
@@ -417,7 +428,6 @@ export class ZPLParser {
     "^DF": this.handleCommandNotImplemented,
     "^FB": this.handleCommandNotImplemented,
     "^FC": this.handleCommandNotImplemented,
-    "^FH": this.handleCommandNotImplemented,
     "^FM": this.handleCommandNotImplemented,
     "^FN": this.handleCommandNotImplemented,
     "^FP": this.handleCommandNotImplemented,

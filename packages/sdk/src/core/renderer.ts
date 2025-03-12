@@ -1,4 +1,5 @@
 import { Label, TextItem, BarcodeItem, GraphicBoxItem } from "../types/types";
+import { zebraEncode } from "./encoding";
 
 interface RendererOptions {
   dpi?: string;
@@ -93,8 +94,9 @@ export class ZPLRenderer {
   }
 
   private renderText(item: TextItem): void {
-    const { x, y, font, blockFormat } = item;
+    const { x, y, font, blockFormat, fieldHex } = item;
     let { data } = item;
+    data = zebraEncode(data, fieldHex);
     const scaledX = this.scaleValue(x);
     const scaledY = this.scaleValue(y);
 
@@ -136,7 +138,7 @@ export class ZPLRenderer {
   private async renderBarcode(item: BarcodeItem): Promise<void> {
     const scaledX = this.scaleValue(item.x);
     const scaledY = this.scaleValue(item.y);
-    const processedData = item.getProcessedData();
+    const processedData = zebraEncode(item.getProcessedData(), item.fieldHex);
 
     // Create a temporary canvas for the barcode
     const tempCanvas = document.createElement("canvas");

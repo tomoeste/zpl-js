@@ -80,6 +80,7 @@ export interface BarcodeRenderOptions {
 export class BarcodeItem {
   readonly type = "Barcode";
   fieldReversed?: boolean;
+  fieldHex?: boolean;
   private static defaultBarcodeSettings: BarcodeDefaults = {
     moduleWidth: 2,
     wideBarToNarrowRatio: 3.0,
@@ -96,10 +97,12 @@ export class BarcodeItem {
     public options?: BarcodeCode39Options | BarcodeCode128Options | null,
     public renderOptions?: BarcodeRenderOptions,
     label?: Label,
-    fieldReversed?: boolean
+    fieldReversed?: boolean,
+    fieldHex?: boolean
   ) {
     this.label = label;
     this.fieldReversed = fieldReversed;
+    this.fieldHex = fieldHex;
   }
 
   public getRenderOptions(): BarcodeRenderOptions {
@@ -159,6 +162,7 @@ export class TextItem implements LayoutItem {
   x: number;
   y: number;
   fieldReversed?: boolean;
+  fieldHex?: boolean;
   data: string;
   font: FontSettings;
   blockFormat?: TextBlockFormat;
@@ -169,7 +173,8 @@ export class TextItem implements LayoutItem {
     data: string,
     font: FontSettings,
     blockFormat?: TextBlockFormat,
-    fieldReversed?: boolean
+    fieldReversed?: boolean,
+    fieldHex?: boolean
   ) {
     this.x = x;
     this.y = y;
@@ -177,6 +182,7 @@ export class TextItem implements LayoutItem {
     this.font = { ...font };
     this.blockFormat = blockFormat;
     this.fieldReversed = fieldReversed;
+    this.fieldHex = fieldHex;
   }
 }
 
