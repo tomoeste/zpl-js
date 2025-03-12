@@ -21,11 +21,11 @@
   },
   "engines": {
     "node": ">=20.0.0",
-    "pnpm": ">=8.12.1",
+    "pnpm": ">=10.6.2",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm"
   },
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@10.6.2",
   "scripts": {
     "prepare": "husky",
     "verify": "pnpm -r lint && pnpm -r test"
