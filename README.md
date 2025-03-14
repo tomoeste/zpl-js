@@ -3,13 +3,10 @@
   <a href="https://github.com/tomoeste/zpl-js">
     <img src="zpl-js.svg" width="400" height="140" alt="ZPL JS">
   </a>
-
   <p align="center">
-    ZPL II in TypeScript/JavaScript
-    <br />
-    <a href="https://tomoeste.github.io/zpl-js/"><strong>Explore the playground »</strong></a>
-    
+    ZPL II in TypeScript/JavaScript  
   </p>
+  <a href="https://tomoeste.github.io/zpl-js/"><strong>Explore the playground »</strong></a>  
 </div>
 
 ## About the project
@@ -41,25 +38,20 @@ since it mainly merges data into a ZPL template to create the full label code.
 
 ### Try it live
 
-You can use the ZPL II editor to preview label code, and even preview print 
+In the Playground, you can use the ZPL editor to preview label code, and even preview print 
 requests sent via HTTP Post!
 
 [https://tomoeste.github.io/zpl-js](https://tomoeste.github.io/zpl-js)
 
 ## Getting started
 
-> [!Note]
-> This section is a work in progress.
+Check out a specific package to learn more about getting started:
 
-### Packages
-
-There are four packages in this repository:
-
-1. `zpl-js` The ZPL II parser and renderer code, along with the React library.
-2. `zpl-js-editor` The browser code editor with syntax highlighting and hover tips.
-3. `zpl-js-listener` A tiny CLI tool to proxy HTTP Post print requests to a WebSocket 
+1. [`zpl-js`](/packages/sdk#readme) The ZPL II parser and renderer code, along with the React library.
+2. [`zpl-js-editor`](/packages/editor#readme) The browser code editor with syntax highlighting and hover tips.
+3. [`zpl-js-listener`](/packages/listener#readme) A tiny CLI tool to proxy HTTP Post print requests to a WebSocket 
 connection. This lets you preview labels printed from another app or device!
-4. `site` The live playground and docs site.
+4. [`site`](/apps/site#readme) The live playground and docs site.
 
 ## License
 
