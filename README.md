@@ -1,10 +1,8 @@
 <br />
 <div align="center">
   <a href="https://github.com/tomoeste/zpl-js">
-    <img src="zpl-js.svg" alt="Logo" width="150" height="100">
+    <img src="zpl-js.svg" width="400" height="140" alt="ZPL JS">
   </a>
-
-<h3 align="center">ZPL × JS</h3>
 
   <p align="center">
     ZPL II in TypeScript/JavaScript
