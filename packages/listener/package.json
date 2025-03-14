@@ -9,15 +9,20 @@
   },
   "keywords": [
     "zpl",
+    "zpl-js",
     "websocket",
-    "http"
+    "http",
+    "listener",
+    "proxy"
   ],
   "license": "MIT",
   "type": "module",
   "scripts": {
     "start": "node index.js"
   },
-  "bin": "index.js",
+  "bin": {
+    "zpl-js-listener": "index.js"
+  },
   "dependencies": {
     "commander": "^13.1.0",
     "uuid": "^11.1.0",

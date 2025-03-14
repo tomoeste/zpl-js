@@ -74,7 +74,7 @@ function findClosestMatch(inputString: string, stringArray: string[]) {
 type CodeHighlightProps = {
   input: string;
   onChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
-  fontsLoaded: boolean;
+  fontsLoaded?: boolean;
 };
 
 export function CodeHighlight(props: CodeHighlightProps) {

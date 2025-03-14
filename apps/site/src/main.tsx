@@ -12,7 +12,7 @@ import { Toaster } from "sonner";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter basename="/zpl-js">
-      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
         <SiteHeader />
         <Routes>
           <Route path="/" element={<Playground />} />

@@ -4,5 +4,6 @@
       "@/*": ["./apps/site/src/*"],
       "@@/*": ["./packages/playground/src/*"]
     },
+    "jsx": "react"
   }
 }
