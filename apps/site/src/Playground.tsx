@@ -25,12 +25,30 @@ import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { useLivePrint } from "@/hooks/use-live-print";
 import { useFontRefresh } from "@/hooks/useFontRefresh";
-import { Link } from "react-router";
+import { Link, useSearchParams } from "react-router";
 import { SiteFooter } from "@/components/site-footer";
+import { useNavigate } from "react-router";
 
 const defaultPreset = presets.find((p) => p.name === "Kitchen sink")!;
 
 export default function Playground() {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const redirect = searchParams.get("redirect") || "";
+
+  useEffect(() => {
+    if (redirect) {
+      try {
+        const url = new URL(redirect, window.location.origin);
+        if (url.pathname.startsWith("/")) {
+          navigate(url.pathname);
+        }
+      } catch {
+        toast.warning("Invalid redirect URL in query string");
+      }
+    }
+  }, [redirect]);
+
   const [selectedPreset, setSelectedPreset] =
     React.useState<Preset>(defaultPreset);
   const [livePrints, setLivePrints] = useState<Preset[]>([]);

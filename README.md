@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <a href="https://github.com/tomoeste/zpl-js" target="_blank">
+  <a href="https://tomoeste.github.io/zpl-js/" target="_blank">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./zpl-js-dark.svg">
       <img alt="ZPL JS" src="./zpl-js.svg">
@@ -18,7 +18,7 @@
 barcode label printing language in TypeScript and JavaScript. Here are the highlights:
 
 - A **ZPL code editor for browsers** with highlighting, hover tips, and live preview 
-(see the [Playground](https://tomoeste.github.io/zpl-js)).
+(see the [Playground](https://tomoeste.github.io/zpl-js/)).
 - An **in-browser ZPL printer emulator** via HTTP Post.
 - A **React library** to create and print ZPL label templates with dynamic data.
 
@@ -33,7 +33,7 @@ software to design with.
 
 For rendering (e.g., live preview), this library implements a core 
 set of ZPL II commands. I plan to add more commands over time. In the docs, you can find an up-to-date
-[list of supported and unsupported commands](https://tomoeste.github.io/zpl-js/docs/playground/supported-commands).
+[list of supported and unsupported commands](https://tomoeste.github.io/zpl-js/?redirect=docs/playground/supported-commands).
 
 The code editor works with all valid commands, though the hover tips
 will be incomplete for some. The React SDK also works with all commands, 
@@ -44,7 +44,7 @@ since it mainly merges data into a ZPL template to create the full label code.
 In the Playground, you can use the ZPL editor to preview label code, and even preview print 
 requests sent via HTTP Post!
 
-[https://tomoeste.github.io/zpl-js](https://tomoeste.github.io/zpl-js)
+[https://tomoeste.github.io/zpl-js](https://tomoeste.github.io/zpl-js/)
 
 ## Getting started
 
