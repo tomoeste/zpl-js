@@ -1,6 +1,6 @@
 <br />
 <div align="center">
-  <a href="https://github.com/tomoeste/zpl-js">
+  <a href="https://github.com/tomoeste/zpl-js" target="_blank">
     <picture>
       <source media="(prefers-color-scheme: dark)" srcset="./zpl-js-dark.svg">
       <img alt="ZPL JS" src="./zpl-js.svg">
@@ -9,7 +9,7 @@
   <p align="center">
     ZPL II in TypeScript/JavaScript  
   </p>
-  <a href="https://tomoeste.github.io/zpl-js/"><strong>Explore the playground »</strong></a>  
+  <a href="https://tomoeste.github.io/zpl-js/" target="_blank"><strong>Explore the playground »</strong></a>  
 </div>
 
 ## About the project

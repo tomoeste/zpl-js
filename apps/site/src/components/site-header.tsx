@@ -74,7 +74,7 @@ export function SiteHeader() {
             <nav className="flex items-center gap-0.5">
               <Button asChild variant="ghost" size="icon">
                 <a
-                  href="https://github.com/tomoeste/"
+                  href="https://github.com/tomoeste/zpl-js"
                   target="_blank"
                   rel="noreferrer"
                 >
