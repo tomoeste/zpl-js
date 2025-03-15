@@ -28,7 +28,7 @@ import {
 } from "lucide-react";
 import { ZPLCommands } from "zpl-js";
 import "remark-github-blockquote-alert/alert.css";
-import { useTheme } from "@/components/theme-provider.tsx";
+import { useTheme } from "zpl-js-editor";
 import {
   Tooltip,
   TooltipContent,

@@ -5,7 +5,7 @@ import Playground from "./Playground.tsx";
 import Docs from "./Docs.tsx";
 import About from "./About.tsx";
 import { SiteHeader } from "@/components/site-header.tsx";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "zpl-js-editor";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router";
 import { Toaster } from "sonner";
 
