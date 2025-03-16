@@ -1,6 +1,6 @@
 {
   "name": "zpl-js",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Tools for working with ZPL II in the browser",
   "author": {
     "name": "Tom Oeste",
@@ -14,7 +14,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "jsbarcode": "^3.11.6"
+    "@bwip-js/browser": "^4.5.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.3",

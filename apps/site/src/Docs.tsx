@@ -79,7 +79,6 @@ export default function Page() {
     [darkMode]
   );
 
-  const totalCommands = Object.keys(ZPLCommands).length;
   const totalImplemented = Object.entries(ZPLCommands).filter(
     ([, cmd]) =>
       cmd.implemented === "FULLY_IMPLEMENTED" ||
@@ -151,8 +150,10 @@ export default function Page() {
                   applicable ZPL II commands (i.e., related to label data and
                   config) are implemented so far:
                   <Progress
-                    value={totalImplemented}
-                    max={totalCommands}
+                    value={
+                      (100 * totalImplemented) /
+                      (totalImplemented + totalNotImplemented)
+                    }
                     className={"mt-4 mb-8"}
                   />
                 </div>

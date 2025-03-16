@@ -1,5 +1,6 @@
 import { Label, TextItem, BarcodeItem, GraphicBoxItem } from "../types/types";
 import { zebraEncode } from "./encoding";
+import type { RenderOptions } from "@bwip-js/browser";
 
 interface RendererOptions {
   dpi?: string;
@@ -84,7 +85,7 @@ export class ZPLRenderer {
       if (item.type === "Text") {
         this.renderText(item as TextItem);
       } else if (item.type === "Barcode") {
-        this.renderBarcode(item as BarcodeItem);
+        this.renderBarcode(item as BarcodeItem, label);
       } else if (item.type === "GraphicBox") {
         this.renderGraphicBox(item as GraphicBoxItem);
       }
@@ -135,7 +136,7 @@ export class ZPLRenderer {
     }
   }
 
-  private async renderBarcode(item: BarcodeItem): Promise<void> {
+  private async renderBarcode(item: BarcodeItem, label: Label): Promise<void> {
     const scaledX = this.scaleValue(item.x);
     const scaledY = this.scaleValue(item.y);
     const processedData = zebraEncode(item.getProcessedData(), item.fieldHex);
@@ -147,24 +148,18 @@ export class ZPLRenderer {
     tempCanvas.width = 400; // Give it enough width
     tempCanvas.height = 200; // Give it enough height
 
-    // Configure JsBarcode options based on barcode type and settings
-    const barcodeOptions: any = {
-      format: "CODE128B",
-      width: item.renderOptions?.moduleWidth || 2,
-      height: item.options?.height || item.renderOptions?.height || 100,
-      displayValue: item.options?.printInterpretationLine ?? true,
-      textPosition: item.options?.interpretationLineAboveCode
-        ? "top"
-        : "bottom",
-      font: "Arial",
-      textAlign: "center",
-      textMargin: 2,
-      background: this.options.backgroundColor,
-      lineColor: this.options.foregroundColor,
-      margin: 10, // Add some margin
-      valid: (valid: boolean) => {
-        console.log("Barcode validity:", valid);
-      },
+    // Configure bwip-js options based on barcode type and settings
+    const barcodeOptions: RenderOptions = {
+      bcid: item.barcodeType,
+      text: processedData,
+      scale:
+        item.renderOptions?.moduleWidth ||
+        label.barcodeDefaults?.moduleWidth ||
+        2,
+      height:
+        (item.options?.height || label.barcodeDefaults?.height || 100) / 15,
+      includetext: true,
+      textfont: "Arial",
     };
 
     // Log the processed data and options
@@ -174,8 +169,8 @@ export class ZPLRenderer {
 
     try {
       // Generate the barcode
-      const JsBarcode = (await import("jsbarcode")).default;
-      JsBarcode(tempCanvas, processedData, barcodeOptions);
+      const bwipjs = (await import("@bwip-js/browser")).default;
+      bwipjs.toCanvas(tempCanvas, barcodeOptions);
 
       // Log the temporary canvas dimensions
       console.log("Temp canvas dimensions:", {

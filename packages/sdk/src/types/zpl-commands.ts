@@ -227,6 +227,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Code 11 Bar Code */
   "^B1": {
@@ -236,6 +237,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Interleaved 2 of 5 Bar Code */
   "^B2": {
@@ -245,6 +247,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Code 39 Bar Code */
   "^B3": {
@@ -264,6 +267,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Planet Code Bar Code */
   "^B5": {
@@ -273,6 +277,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** PDF417 Bar Code */
   "^B7": {
@@ -282,6 +287,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** EAN-8 Bar Code */
   "^B8": {
@@ -291,6 +297,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** UPC-E Bar Code */
   "^B9": {
@@ -300,6 +307,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Code 93 Bar Code */
   "^BA": {
@@ -309,6 +317,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** CODABLOCK Bar Code */
   "^BB": {
@@ -318,6 +327,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Code 128 Bar Code (Subsets A, B, and C) */
   "^BC": {
@@ -337,6 +347,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** EAN-13 Bar Code */
   "^BE": {
@@ -346,6 +357,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Micro-PDF417 Bar Code */
   "^BF": {
@@ -355,6 +367,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Industrial 2 of 5 Bar Codes */
   "^BI": {
@@ -364,6 +377,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Standard 2 of 5 Bar Code */
   "^BJ": {
@@ -373,6 +387,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** ANSI Codabar Bar Code */
   "^BK": {
@@ -382,6 +397,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** LOGMARS Bar Code */
   "^BL": {
@@ -391,6 +407,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** MSI Bar Code */
   "^BM": {
@@ -400,6 +417,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Aztec Bar Code Parameters */
   "^BO": {
@@ -409,6 +427,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Plessey Bar Code */
   "^BP": {
@@ -418,6 +437,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** QR Code Bar Code */
   "^BQ": {
@@ -427,6 +447,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** RSS (Reduced Space Symbology) Bar Code */
   "^BR": {
@@ -436,15 +457,18 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** UPC/EAN Extensions */
   "^BS": {
     name: "UPC/EAN Extensions",
-    description: "",
+    description:
+      "Generate UPC/EAN bar code extensions to add additional information to the main code, such as pricing or supplementary identifiers. Used primarily with ISBNs (International Standard Book Numbers).",
     format: "",
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** TLC39 Bar Code */
   "^BT": {
@@ -454,6 +478,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "NOT_IMPLEMENTED", // Not in bwip-js at this time
   },
   /** UPC-A Bar Code */
   "^BU": {
@@ -463,6 +488,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Data Matrix Bar Code */
   "^BX": {
@@ -472,6 +498,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** Bar Code Field Default */
   "^BY": {
@@ -491,6 +518,7 @@ export const ZPLCommands: Record<ZPLCommandKey, ZPLCommandValue> = {
     reference: {
       "zpl-zbi2-pm-en": 0,
     },
+    implemented: "PARTIALLY_IMPLEMENTED",
   },
   /** ~CC Change Carets */
   "^CC": {

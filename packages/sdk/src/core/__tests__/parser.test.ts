@@ -43,7 +43,7 @@ describe("ZPLParser Tests", () => {
     const result = parser.parse();
     expect(result.isValid).toBe(true);
     expect(result.errors?.length).toBe(0);
-    expect((result.label?.items[0] as BarcodeItem).barcodeType).toBe("CODE39");
+    expect((result.label?.items[0] as BarcodeItem).barcodeType).toBe("code39");
     expect(
       (result.label?.items[0] as BarcodeItem).getRenderOptions()?.height
     ).toBe(50);
@@ -55,7 +55,7 @@ describe("ZPLParser Tests", () => {
     const result = parser.parse();
     expect(result.isValid).toBe(true);
     expect(result.errors?.length).toBe(0);
-    expect((result.label?.items[0] as BarcodeItem).barcodeType).toBe("CODE128");
+    expect((result.label?.items[0] as BarcodeItem).barcodeType).toBe("code128");
     expect(
       (result.label?.items[0] as BarcodeItem).getRenderOptions()?.height
     ).toBe(100);

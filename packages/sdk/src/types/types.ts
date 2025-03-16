@@ -129,7 +129,7 @@ export class BarcodeItem {
 
   public getProcessedData(): string {
     // Ensure Code 39 barcodes have start/stop characters
-    if (this.barcodeType === "CODE39") {
+    if (this.barcodeType === "code39") {
       return `*${this.data}*`;
     }
     return this.data;

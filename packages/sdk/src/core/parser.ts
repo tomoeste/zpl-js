@@ -162,7 +162,7 @@ export class ZPLParser {
   private parseBYParameters(paramString: string): BarcodeDefaults {
     const params = paramString.split(",");
     const defaults: BarcodeDefaults = {
-      moduleWidth: 2,
+      moduleWidth: 4,
       wideBarToNarrowRatio: 3.0,
       height: 10,
     };
@@ -206,20 +206,150 @@ export class ZPLParser {
     throw new Error("Command not implemented");
   }
 
+  private handleB0 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "azteccode";
+  };
+
+  private handleB1 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "code11";
+  };
+
+  private handleB2 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "interleaved2of5";
+  };
+
   private handleB3 = (paramString: string) => {
     this.isBarcodeMode = true;
-    this.barcodeType = "CODE39";
+    this.barcodeType = "code39";
     this.currentBarcodeOptions = this.parseCode39Parameters(paramString);
+  };
+
+  private handleB4 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "code49";
+  };
+
+  private handleB5 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "planet";
+  };
+
+  private handleB7 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "pdf417";
+  };
+
+  private handleB8 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "ean8";
+  };
+
+  private handleB9 = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "upce";
+  };
+
+  private handleBA = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "code93";
+  };
+
+  private handleBB = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "codablock";
   };
 
   private handleBC = (paramString: string) => {
     this.isBarcodeMode = true;
-    this.barcodeType = "CODE128";
+    this.barcodeType = "code128";
     this.currentBarcodeOptions = this.parseCode128Parameters(paramString);
+  };
+
+  private handleBD = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "maxicode";
+  };
+
+  private handleBE = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "ean13";
+  };
+
+  private handleBF = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "micropdf417";
+  };
+
+  private handleBI = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "industrial2of5";
+  };
+
+  private handleBJ = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "iata2of5";
+  };
+
+  private handleBK = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "rationalizedCodabar";
+  };
+
+  private handleBL = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "code39";
+  };
+
+  private handleBM = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "msi";
+  };
+
+  private handleBO = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "azteccode";
+  };
+
+  private handleBP = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "plessey";
+  };
+
+  private handleBQ = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "qrcode";
+  };
+
+  private handleBR = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "gs1-128";
+  };
+
+  private handleBS = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "upce";
+  };
+
+  private handleBU = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "upca";
+  };
+
+  private handleBX = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "datamatrix";
   };
 
   private handleBY = (paramString: string) => {
     this.label.barcodeDefaults = this.parseBYParameters(paramString);
+  };
+
+  private handleBZ = () => {
+    this.isBarcodeMode = true;
+    this.barcodeType = "postnet";
   };
 
   private handleCF = (paramString: string) => {
@@ -377,6 +507,33 @@ export class ZPLParser {
     ZPLCommand,
     (paramString: string) => void
   > = {
+    "^B0": this.handleB0,
+    "^B1": this.handleB1,
+    "^B2": this.handleB2,
+    "^B4": this.handleB4,
+    "^B5": this.handleB5,
+    "^B7": this.handleB7,
+    "^B8": this.handleB8,
+    "^B9": this.handleB9,
+    "^BA": this.handleBA,
+    "^BB": this.handleBB,
+    "^BD": this.handleBD,
+    "^BE": this.handleBE,
+    "^BF": this.handleBF,
+    "^BI": this.handleBI,
+    "^BJ": this.handleBJ,
+    "^BK": this.handleBK,
+    "^BL": this.handleBL,
+    "^BM": this.handleBM,
+    "^BO": this.handleBO,
+    "^BP": this.handleBP,
+    "^BQ": this.handleBQ,
+    "^BR": this.handleBR,
+    "^BS": this.handleBS,
+    "^BT": this.handleCommandNotImplemented,
+    "^BU": this.handleBU,
+    "^BX": this.handleBX,
+    "^BZ": this.handleBZ,
     "^B3": this.handleB3,
     "^BC": this.handleBC,
     "^BY": this.handleBY,
@@ -390,33 +547,6 @@ export class ZPLParser {
     "^FS": this.handleNoOp,
     "^A": this.handleCommandNotImplemented,
     "^A@": this.handleCommandNotImplemented,
-    "^B0": this.handleCommandNotImplemented,
-    "^B1": this.handleCommandNotImplemented,
-    "^B2": this.handleCommandNotImplemented,
-    "^B4": this.handleCommandNotImplemented,
-    "^B5": this.handleCommandNotImplemented,
-    "^B7": this.handleCommandNotImplemented,
-    "^B8": this.handleCommandNotImplemented,
-    "^B9": this.handleCommandNotImplemented,
-    "^BA": this.handleCommandNotImplemented,
-    "^BB": this.handleCommandNotImplemented,
-    "^BD": this.handleCommandNotImplemented,
-    "^BE": this.handleCommandNotImplemented,
-    "^BF": this.handleCommandNotImplemented,
-    "^BI": this.handleCommandNotImplemented,
-    "^BJ": this.handleCommandNotImplemented,
-    "^BK": this.handleCommandNotImplemented,
-    "^BL": this.handleCommandNotImplemented,
-    "^BM": this.handleCommandNotImplemented,
-    "^BO": this.handleCommandNotImplemented,
-    "^BP": this.handleCommandNotImplemented,
-    "^BQ": this.handleCommandNotImplemented,
-    "^BR": this.handleCommandNotImplemented,
-    "^BS": this.handleCommandNotImplemented,
-    "^BT": this.handleCommandNotImplemented,
-    "^BU": this.handleCommandNotImplemented,
-    "^BX": this.handleCommandNotImplemented,
-    "^BZ": this.handleCommandNotImplemented,
     "^CC": this.handleCommandNotImplemented,
     "^CD": this.handleCommandNotImplemented,
     "^CI": this.handleCommandNotImplemented,
