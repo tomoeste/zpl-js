@@ -119,14 +119,14 @@ export default function Playground() {
     <div className="flex flex-col m-2 drop-shadow-md rounded-xl bg-white dark:bg-black">
       <div className="flex flex-col">
         <div className="flex-col flex">
-          <div className="flex flex-col items-start justify-between space-y-2 p-4 md:p-6 md:h-16">
-            <h2 className="md:hidden text-lg font-semibold w-full text-center mb-3">
+          <div className="flex flex-col md:flex-row items-start justify-between space-y-2 p-4 md:h-16">
+            <h2 className="md:hidden text-lg font-semibold w-full md:w-0 text-center mb-3">
               ZPL × JS Playground
             </h2>
-            <h2 className="hidden md:inline-block text-lg font-semibold shrink-0">
+            <h2 className="hidden md:flex text-lg font-semibold shrink-0">
               Playground
             </h2>
-            <div className="ml-auto flex w-full gap-2 sm:justify-end">
+            <div className="ml-auto flex gap-2 sm:justify-end">
               <PresetSelector
                 presets={presets}
                 livePrints={livePrints}
