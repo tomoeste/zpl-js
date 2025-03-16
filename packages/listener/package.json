@@ -7,6 +7,14 @@
     "email": "tomoeste@gmail.com",
     "url": "https://www.npmjs.com/~tomoeste"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomoeste/zpl-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tomoeste/zpl-js/issues"
+  },
+  "homepage": "https://tomoeste.github.io/zpl-js/",
   "keywords": [
     "zpl",
     "zpl-js",
