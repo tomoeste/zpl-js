@@ -2,8 +2,8 @@
 <div align="center">
   <a href="https://tomoeste.github.io/zpl-js/" target="_blank">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="./zpl-js-dark.svg">
-      <img alt="ZPL JS" src="./zpl-js.svg">
+      <source media="(prefers-color-scheme: dark)" srcset="images/zpl-js-dark.svg">
+      <img alt="ZPL JS" src="images/zpl-js.svg">
     </picture>
   </a>
   <p align="center">
@@ -21,6 +21,11 @@ barcode label printing language in TypeScript and JavaScript. Here are the highl
 (see the [Playground](https://tomoeste.github.io/zpl-js/)).
 - An **in-browser ZPL printer emulator** via HTTP Post.
 - A **React library** to create and print ZPL label templates with dynamic data.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="images/zpl-js-screenshot-dark.png">
+  <img alt="ZPL JS Playground screenshot" src="images/zpl-js-screenshot.png">
+</picture>
 
 ### ZPL?
 
