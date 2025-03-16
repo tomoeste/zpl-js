@@ -186,7 +186,7 @@ Promise.all([
   });
 
 function shutdown() {
-  console.log("Performing graceful shutdown...");
+  console.log("\n\nPerforming graceful shutdown...");
 
   clients.forEach((client) => {
     if (client.close) client.close();
