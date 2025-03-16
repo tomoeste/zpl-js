@@ -17,10 +17,11 @@
 **ZPL × JS** is for working with the ZPL II
 barcode label printing language in TypeScript and JavaScript. Here are the highlights:
 
-- A **ZPL code editor for browsers** with highlighting, hover tips, and live preview 
+- **Native JS ZPL parser and renderer** that runs entirely in the browser.
+- **ZPL code editor for browsers** with highlighting, hover tips, and live preview 
 (see the [Playground](https://tomoeste.github.io/zpl-js/)).
-- An **in-browser ZPL printer emulator** via HTTP Post.
-- A **React library** to create and print ZPL label templates with dynamic data.
+- **In-browser ZPL printer emulator** via HTTP Post.
+- **React hooks** to create and print ZPL label templates with dynamic data.
 
 ### ZPL?
 
@@ -50,7 +51,7 @@ requests sent via HTTP Post!
 
 Check out a specific package to learn more about getting started:
 
-1. [`zpl-js`](/packages/sdk#readme) The ZPL II parser and renderer code, along with the React library.
+1. [`zpl-js`](/packages/sdk#readme) The ZPL II parser and renderer code, along with the React hooks and provider.
 2. [`zpl-js-editor`](/packages/editor#readme) The browser code editor with syntax highlighting and hover tips.
 3. [`zpl-js-listener`](/packages/listener#readme) A tiny CLI tool to proxy HTTP Post print requests to a WebSocket 
 connection. This lets you preview labels printed from another app or device!
