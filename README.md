@@ -62,6 +62,10 @@ Check out a specific package to learn more about getting started:
 connection. This lets you preview labels printed from another app or device!
 4. [`site`](/apps/site#readme) The live playground and docs site.
 
+## Acknowledgements
+
+`zpl-js` utilizes the fantastic [bwip-js](https://github.com/metafloor/bwip-js) library for barcode rendering. The Playground and docs site is built with [Vite](https://vite.dev/) and [shadcn](https://ui.shadcn.com/).
+
 ## License
 
 All code is distributed under the [MIT](/LICENSE) license. 
