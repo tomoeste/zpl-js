@@ -118,9 +118,14 @@ export default function Playground() {
   return (
     <div className="flex flex-col m-2 drop-shadow-md rounded-xl bg-white dark:bg-black">
       <div className="flex flex-col">
-        <div className="hidden flex-col md:flex">
-          <div className="flex flex-col items-start justify-between space-y-2 p-6 sm:flex-row sm:items-center sm:space-y-0 md:h-16">
-            <h2 className="text-lg font-semibold shrink-0">Playground</h2>
+        <div className="flex-col flex">
+          <div className="flex flex-col items-start justify-between space-y-2 p-4 md:p-6 md:h-16">
+            <h2 className="md:hidden text-lg font-semibold w-full text-center mb-3">
+              ZPL × JS Playground
+            </h2>
+            <h2 className="hidden md:inline-block text-lg font-semibold shrink-0">
+              Playground
+            </h2>
             <div className="ml-auto flex w-full gap-2 sm:justify-end">
               <PresetSelector
                 presets={presets}
@@ -200,14 +205,14 @@ export default function Playground() {
             </div>
           </div>
           <Separator />
-          <div className="flex flex-row grow-1 w-full p-6 overflow-hidden">
-            <div className="grid grid-cols-2 w-full gap-6 min-h-[400px] overflow-hidden">
+          <div className="flex flex-col md:flex-row grow-1 w-full p-6 overflow-hidden">
+            <div className="sm:flex sm:flex-col md:grid md:grid-cols-2 w-full gap-6 min-h-[400px] overflow-hidden">
               <CodeHighlight
                 input={zplInput}
                 onChange={handleZplInputChange}
                 fontsLoaded={fontsLoaded}
               />
-              <div style={{ padding: "3px" }}>
+              <div style={{ padding: "3px" }} className="my-4 md:my-0">
                 <div
                   className="rounded-md border bg-sidebar overflow-auto"
                   style={{ height: "calc(100vh - 180px)", minHeight: "400px" }}

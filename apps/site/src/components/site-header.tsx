@@ -16,15 +16,21 @@ export function SiteHeader() {
     <header className="border-grid sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container-wrapper">
         <div className="flex h-14 items-center gap-2 md:gap-4">
-          <div className="hidden md:flex">
-            <Link to="/" className="mx-4 flex items-center gap-2 lg:mr-2">
+          <div className=" flex">
+            <Link
+              to="/zpl-js/"
+              className="mx-4 flex items-center gap-2 lg:mr-2"
+            >
               <Terminal />
-              <span className="hidden font-bold lg:inline-block">ZPL × JS</span>
+              <span className="hidden font-bold md:inline-block">ZPL × JS</span>
             </Link>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <Badge variant="outline" className="ml-2 mr-4 lg:mr-6">
+                  <Badge
+                    variant="outline"
+                    className="hidden md:inline-block ml-2 mr-4 lg:mr-6"
+                  >
                     <code className="pointer-events-none">alpha</code>
                   </Badge>
                 </TooltipTrigger>
