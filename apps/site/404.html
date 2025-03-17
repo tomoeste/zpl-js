@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script type="text/javascript">
+      const currentPathname = window.location.pathname.replace('/zpl-js', '');
+      window.location.href = `${window.location.origin}?redirect=${encodeURIComponent(currentPathname)}`;
+    </script>
+    <title>Page Redirect - ZPL × JS</title>
+    <meta
+      name="description"
+      content="ZPL × JS is a library for working with the ZPL II barcode label printing language in TypeScript/JavaScript"
+    />
+  </head>
+  <body>
+    <p>
+      If you are not redirected automatically, you can find the <a href='https://tomoeste.github.io/zpl-js/'>home page here</a>.
+    </p>
+  </body>
+</html>
