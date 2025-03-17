@@ -35,9 +35,10 @@ export const useLabel = ({ zpl, variables }: Props) => {
     if (parsedZpl) {
       const vars = parsedZpl.variables;
       // TODO: Do this immutably
-      Object.keys(variables).forEach((key) => {
-        if (vars.has(key)) vars.get(key).value = variables[key];
-      });
+      if (vars)
+        Object.keys(variables).forEach((key) => {
+          if (vars.has(key)) vars.get(key)!.value = variables[key];
+        });
       setZplOutput(zpl.produce());
     }
   }, [parsedZpl, variables]);

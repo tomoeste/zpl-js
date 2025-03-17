@@ -11,7 +11,7 @@ import { PrinterContext } from "./PrinterProvider";
  * outside of a PrinterProvider.
  */
 export const usePrinter = (): Printer => {
-  const context: Printer = useContext(PrinterContext);
+  const context: Printer | undefined = useContext(PrinterContext);
   if (context === undefined) {
     throw new Error("usePrinter must be used within a PrinterProvider");
   }

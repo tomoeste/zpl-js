@@ -254,7 +254,8 @@ export class Printer {
     return this._port;
   }
 
-  public print(zpl: string): Promise<Response> {
+  public print(zpl: string | undefined): Promise<Response> {
+    if (!zpl) return Promise.reject("zpl is required");
     return fetch(`http://${this._ip}:${this._port}/printer/pstprnt`, {
       method: "POST",
       body: zpl,
