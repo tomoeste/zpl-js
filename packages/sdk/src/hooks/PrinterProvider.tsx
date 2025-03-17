@@ -1,4 +1,4 @@
-import React, { FC, createContext, useState, ReactNode } from "react";
+import { FC, createContext, useState, ReactNode } from "react";
 import { Printer } from "../types/types";
 
 /**
