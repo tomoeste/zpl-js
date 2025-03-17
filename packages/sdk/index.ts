@@ -1,5 +1,7 @@
 export * from "./src/core/renderer";
 export * from "./src/core/parser";
+export * from "./src/core/encoding";
+export * from "./src/core/tag";
 export * from "./src/hooks/PrinterProvider";
 export * from "./src/hooks/useLabel";
 export * from "./src/hooks/usePrint";
