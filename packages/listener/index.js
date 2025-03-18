@@ -24,6 +24,11 @@ program
     "Specify the WebSockets port number",
     parseInt
   )
+  .option("-h, --host <hostname>", "Specify the hostname to listen on")
+  .option(
+    "-n, --pathname <pathname>",
+    "Specify the pathname to listen on (HTTP only)"
+  )
   .parse(process.argv);
 
 const options = program.opts();
@@ -34,6 +39,8 @@ import { v4 } from "uuid";
 
 const port = options.port || 3000;
 const wsPort = options.wsPort || 8080;
+const host = options.host || "localhost";
+const pathname = options.pathname || "/printer/pstprnt";
 const maxBodySize = 1024 * 1024; // 1MB limit
 
 const MAX_CLIENTS = 100;
@@ -41,11 +48,11 @@ const clients = new Set();
 
 function startServer(server, port, type, retries = 3) {
   return new Promise((resolve, reject) => {
-    server.listen(port, "127.0.0.1");
+    server.listen(port, host);
 
     server.on("listening", () => {
       console.log(
-        `  ➜  ${type} server: \x1b[1m${type === "HTTP" ? "http" : "ws"}://${server.address().address}:${server.address().port}\x1b[0m`
+        `  ➜  ${type} server: \x1b[1m${type === "HTTP" ? "http" : "ws"}://${host === "localhost" ? "localhost" : server.address().address}:${server.address().port}${type === "HTTP" ? pathname : ""}\x1b[0m`
       );
       resolve(server);
     });
@@ -122,22 +129,35 @@ function broadcast(message) {
   return clients.size;
 }
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST",
+  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Max-Age": "86400",
+};
+
 const server = http.createServer((req, res) => {
   console.log("HTTP request received:", req.method, req.url);
+  if (req.method === "OPTIONS") {
+    res.writeHead(200, corsHeaders);
+    res.end();
+    return;
+  }
+
   if (req.method !== "POST") {
-    res.writeHead(405, { "Content-Type": "text/plain" });
+    res.writeHead(405, { ...corsHeaders, "Content-Type": "text/plain" });
     res.end("Method Not Allowed");
     return;
   }
 
-  if (req.url !== "/") {
-    res.writeHead(404, { "Content-Type": "text/plain" });
+  if (req.url !== pathname) {
+    res.writeHead(404, { ...corsHeaders, "Content-Type": "text/plain" });
     res.end("Not Found");
     return;
   }
 
   if (!req.headers["content-type"]?.includes("text/plain")) {
-    res.writeHead(415, { "Content-Type": "text/plain" });
+    res.writeHead(415, { ...corsHeaders, "Content-Type": "text/plain" });
     res.end("Unsupported Media Type");
     return;
   }
@@ -148,7 +168,7 @@ const server = http.createServer((req, res) => {
   req.on("data", (chunk) => {
     bodySize += chunk.length;
     if (bodySize > maxBodySize) {
-      res.writeHead(413, { "Content-Type": "text/plain" });
+      res.writeHead(413, { ...corsHeaders, "Content-Type": "text/plain" });
       res.end("Payload Too Large");
       req.destroy();
       return;
@@ -158,8 +178,12 @@ const server = http.createServer((req, res) => {
 
   req.on("end", () => {
     const clients = broadcast(body);
-    console.log(`Message sent to ${clients} WebSocket client(s)`);
-    res.writeHead(200, { "Content-Type": "text/plain" });
+    console.log(
+      clients > 0
+        ? `Message sent to ${clients} WebSocket client${clients > 1 ? "s" : ""}`
+        : "Message not sent: No WebSocket clients connected."
+    );
+    res.writeHead(200, { ...corsHeaders, "Content-Type": "text/plain" });
     res.end("Message sent to WebSocket clients");
   });
 });

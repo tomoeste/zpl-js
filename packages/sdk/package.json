@@ -1,6 +1,6 @@
 {
   "name": "zpl-js",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Tools for working with ZPL II in the browser",
   "author": {
     "name": "Tom Oeste",

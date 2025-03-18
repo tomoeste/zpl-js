@@ -33,7 +33,7 @@ export class ZPLParser {
   private zplInput = "";
   private result: ParsedZPL = {
     label: null,
-    isValid: false,
+    isValid: undefined,
     errors: [],
   };
   public name: string = "Label";
@@ -632,11 +632,11 @@ export class ZPLParser {
     "^SZ": this.handleCommandNotImplemented,
     "^TO": this.handleCommandNotImplemented,
     "^WD": this.handleCommandNotImplemented,
-    "^XA": this.handleCommandNotImplemented,
+    "^XA": this.handleNoOp,
     "^XB": this.handleCommandNotImplemented,
     "^XF": this.handleCommandNotImplemented,
     "^XG": this.handleCommandNotImplemented,
-    "^XZ": this.handleCommandNotImplemented,
+    "^XZ": this.handleNoOp,
     "^ZZ": this.handleCommandNotImplemented,
     "~DB": this.handleCommandNotImplemented,
     "~DE": this.handleCommandNotImplemented,
@@ -700,7 +700,7 @@ export class ZPLParser {
     console.log("Original ZPL:", this.zplInput);
 
     // Remove the start and end commands
-    this.zplInput = this.zplInput.substring(3, this.zplInput.length - 3);
+    // this.zplInput = this.zplInput.substring(3, this.zplInput.length - 3);
 
     const commandRegex = /([~^][A-Z][A-Z0-9@])([^~^]*?)(?=[~^]|$)/g;
     let match;
@@ -741,9 +741,9 @@ export class ZPLParser {
   }
 
   public produce(): string {
+    if (typeof this.result.isValid === "undefined") this.parse();
     if (this.result.isValid) {
-      let workingString = `^XA${this.zplInput}^XZ`;
-      console.log(workingString);
+      let workingString = this.zplInput;
       this.variables.forEach((variable) => {
         console.log(variable);
         const regex = new RegExp(

@@ -16,5 +16,11 @@ type Props = {
 export const usePrint = (props: Props) => {
   const printer = usePrinter();
   const label = useLabel(props);
-  return () => printer.print(label);
+  return () => {
+    try {
+      return printer.print(label?.produce());
+    } catch (e) {
+      console.error("Error printing ZPL", label, e);
+    }
+  };
 };

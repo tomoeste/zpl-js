@@ -12,7 +12,7 @@ export interface ParsedZPL {
   /**
    * Indicates whether the ZPL string was valid and successfully parsed
    */
-  isValid: boolean;
+  isValid?: boolean;
 
   /**
    * Optional array of error messages if parsing failed
