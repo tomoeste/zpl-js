@@ -348,7 +348,7 @@ importers:
     dependencies:
       '@bwip-js/browser':
         specifier: ^4.5.2
-        version: 4.5.2
+        version: 4.5.3
       react:
         specifier: ^16.9.0 || ^17 || ^18 || ^19
         version: 19.0.0
@@ -567,8 +567,8 @@ packages:
   '@bcoe/v8-coverage@0.2.3':
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
 
-  '@bwip-js/browser@4.5.2':
-    resolution: {integrity: sha512-rp1eb8iDKwAVIjNdmAKb+4CLrSPdnz1Fz3RCWeQivl1F6Nfki8bOfOTSN+IhopMMdE7eC6z531WtWbhyAmLd/Q==}
+  '@bwip-js/browser@4.5.3':
+    resolution: {integrity: sha512-Wvl6hTXtu5mw2CNCP9zEBte2QN3ZyyPE+vnIWD/RSa+wdziMHGVP0vZp0rGhXGGXxd8UIINSYMiQG8F6xNIkUQ==}
 
   '@esbuild/aix-ppc64@0.25.1':
     resolution: {integrity: sha512-kfYGy8IdzTGy+z0vFGvExZtxkFlA4zAxgKEahG9KE1ScBjpQnFsNOX8KTU5ojNru5ed5CVoJYXFtoxaq5nFbjQ==}
@@ -4408,7 +4408,7 @@ snapshots:
 
   '@bcoe/v8-coverage@0.2.3': {}
 
-  '@bwip-js/browser@4.5.2': {}
+  '@bwip-js/browser@4.5.3': {}
 
   '@esbuild/aix-ppc64@0.25.1':
     optional: true
