@@ -1,5 +1,6 @@
 import { Variable, VariableType } from "../types/types";
 import { ZPLParser } from "./parser";
+import { ZplJsConfig } from "./config";
 
 const fullPattern =
   /^label\s+(?<name>[a-zA-Z0-9\-_]+)\((?<params>.*)\)\s*\{(?<zpl>.*)}$/;
@@ -14,11 +15,19 @@ export function zpl(
 ): ZPLParser {
   let parser: ZPLParser | null = null;
 
-  const input = strings
+  let input = strings
     .reduce((result, str, i) => result + str + (values[i] ?? ""), "")
     .replace(/\n/g, " ")
     .replace(/\s+/g, " ")
     .trim();
+
+  if (input.length > ZplJsConfig.zplMaxLength) {
+    console.warn(
+      `ZPL string will be truncated to ${ZplJsConfig.zplMaxLength} characters.`
+    );
+  }
+
+  input = input.substring(0, ZplJsConfig.zplMaxLength);
 
   if (fullPattern.test(input)) {
     // Handle case where label Name(...) {...}
