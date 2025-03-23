@@ -35,7 +35,6 @@ import {
 import { Progress } from "./components/ui/progress";
 import { Remark } from "react-remark";
 import { remarkAlert } from "remark-github-blockquote-alert";
-import rehypePrettyCode from "rehype-pretty-code";
 
 export default function Page() {
   const location = useLocation();
@@ -127,18 +126,6 @@ export default function Page() {
                 [remarkAlert] as unknown as ComponentProps<
                   typeof Remark
                 >["remarkPlugins"]
-              }
-              rehypePlugins={
-                [
-                  [
-                    rehypePrettyCode,
-                    {
-                      theme: darkMode
-                        ? "github-dark-default"
-                        : "github-light-default",
-                    },
-                  ],
-                ] as unknown as ComponentProps<typeof Remark>["rehypePlugins"]
               }
             >
               {markdown}

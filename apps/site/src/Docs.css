@@ -95,7 +95,7 @@
   margin: 1em 0 2em 0;
 }
 
-.docs pre code {
+.docs pre {
   -webkit-user-select: all;
   user-select: all;
   font-size: 0.8em;
@@ -135,7 +135,7 @@
   color: #30363d;
 }
 
- .dark .docs pre code {
+ .dark .docs pre {
     border: 1px solid #30363d;
     background-color: #15181b;
   }
