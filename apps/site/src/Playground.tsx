@@ -1,10 +1,16 @@
 import { Separator } from "@/components/ui/separator";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { ZPLParser, ZPLRenderer } from "zpl-js";
+import {
+  lazy,
+  Suspense,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { PresetSelector } from "@/components/preset-selector";
 import { Preset, presets } from "@/data/presets.ts";
 import * as React from "react";
-import CodeHighlight from "zpl-js-editor";
+const CodeHighlight = lazy(() => import("zpl-js-editor"));
 import { Label } from "@radix-ui/react-label";
 import { LabelDimensions } from "@/components/label-dimensions";
 import { LabelDPI } from "@/components/label-dpi";
@@ -28,6 +34,7 @@ import { useFontRefresh } from "@/hooks/useFontRefresh";
 import { Link, useSearchParams } from "react-router";
 import { SiteFooter } from "@/components/site-footer";
 import { useNavigate } from "react-router";
+import LoadingScreen from "@/Loading.tsx";
 
 const defaultPreset = presets.find((p) => p.name === "Kitchen sink")!;
 
@@ -75,11 +82,12 @@ export default function Playground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const renderZPL = useCallback(
-    (zpl: string) => {
+    async (zpl: string) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
 
       try {
+        const { ZPLParser, ZPLRenderer } = await import("zpl-js");
         const parser = new ZPLParser(zpl);
         const renderer = new ZPLRenderer(canvas, {
           dpi,
@@ -207,11 +215,13 @@ export default function Playground() {
           <Separator />
           <div className="flex flex-col md:flex-row grow-1 w-full p-6 overflow-hidden">
             <div className="sm:flex sm:flex-col md:grid md:grid-cols-2 w-full gap-6 min-h-[400px] overflow-hidden">
-              <CodeHighlight
-                input={zplInput}
-                onChange={handleZplInputChange}
-                fontsLoaded={fontsLoaded}
-              />
+              <Suspense fallback={<LoadingScreen />}>
+                <CodeHighlight
+                  input={zplInput}
+                  onChange={handleZplInputChange}
+                  fontsLoaded={fontsLoaded}
+                />
+              </Suspense>
               <div style={{ padding: "3px" }} className="my-4 md:my-0">
                 <div
                   className="rounded-md border bg-sidebar overflow-auto"

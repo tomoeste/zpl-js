@@ -8,7 +8,7 @@ keep reading for general development tips.
 
 Install the library to start using it in your project.
 
-```console
+```bash
 $ pnpm add zpl-js
 ```
 

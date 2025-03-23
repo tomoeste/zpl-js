@@ -14,9 +14,7 @@ import {
 } from "@/components/ui/sidebar";
 import { SiteFooter } from "@/components/site-footer.tsx";
 import { Link, useLocation, useParams } from "react-router";
-import { Remark } from "react-remark";
-import { remarkAlert } from "remark-github-blockquote-alert";
-import { useEffect, useMemo, useState } from "react";
+import { ComponentProps, useEffect, useMemo, useState } from "react";
 import "./Docs.css";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert.tsx";
 import {
@@ -35,6 +33,9 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip.tsx";
 import { Progress } from "./components/ui/progress";
+import { Remark } from "react-remark";
+import { remarkAlert } from "remark-github-blockquote-alert";
+import rehypePrettyCode from "rehype-pretty-code";
 
 export default function Page() {
   const location = useLocation();
@@ -121,9 +122,27 @@ export default function Page() {
             </Alert>
           )}
           <div className="max-w-3xl docs pr-8">
-            {/* @ts-expect-error The plugin types don't like each other */}
-            <Remark remarkPlugins={[remarkAlert]}>{markdown}</Remark>
-
+            <Remark
+              remarkPlugins={
+                [remarkAlert] as unknown as ComponentProps<
+                  typeof Remark
+                >["remarkPlugins"]
+              }
+              rehypePlugins={
+                [
+                  [
+                    rehypePrettyCode,
+                    {
+                      theme: darkMode
+                        ? "github-dark-default"
+                        : "github-light-default",
+                    },
+                  ],
+                ] as unknown as ComponentProps<typeof Remark>["rehypePlugins"]
+              }
+            >
+              {markdown}
+            </Remark>
             <div className="flex justify-between my-12">
               {previousPage && (
                 <Link to={previousPage.url} className="flex text-sm">

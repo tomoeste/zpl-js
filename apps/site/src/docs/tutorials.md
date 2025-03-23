@@ -23,10 +23,7 @@ pnpm add zpl-js
 
 For a more cohesive style, replace the contents of `App.css` with the following:
 
-<details>
-    <summary>Expand to see CSS code</summary>
-
-```css
+```css showLineNumbers
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -87,7 +84,6 @@ pre {
   text-align: left;
 }
 ```
-</details>
 
 ### Add PrinterProvider
 
@@ -95,7 +91,7 @@ The first thing we should do is wrap our app with a `PrinterProvider`, which wil
 allow us to access our printer configuration from anywhere in the app. You can
 replace you the `main.tsx` file with the code below.
 
-```typescript jsx
+```typescript jsx showLineNumbers
 // main.tsx
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
@@ -120,7 +116,7 @@ createRoot(document.getElementById('root')!).render(
 
 Let's define a simple label template using the `zpl` tag. You can add this directly to the default App.tsx file.
 
-```typescript jsx
+```typescript jsx showLineNumbers
 // In App.tsx
 import { jsx } from "zpl-js";
 
@@ -140,7 +136,7 @@ label Nametag(message: string) {
 Let's use the `useLabel` hook to reference our new label template from a React 
 component. Replace the contents of the `App` component with this:
 
-```typescript jsx
+```typescript jsx showLineNumbers
 function App() {
   const label = useLabel({
     zpl: labelTemplate,
@@ -169,7 +165,7 @@ When you run the app, you should see the ZPL code with the variable substituted 
 In practice, you'll want to print dynamic data. Let's write a simple form to collect
 a name and print a name tag label.
 
-```typescript jsx
+```typescript jsx showLineNumbers
 function App() {
   const [text, setText] = useState('John Zebra');
 
@@ -209,7 +205,7 @@ We're going to introduce the `usePrint` hook to easy print to our configured pri
 > you configured your printer with localhost:3000 in the `PrinterProvider`,
 > you're ready to go!
 
-```typescript jsx
+```typescript jsx showLineNumbers
 function App() {
   const [text, setText] = useState('John Zebra');
 

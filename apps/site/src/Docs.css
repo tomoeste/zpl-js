@@ -88,3 +88,60 @@
 .docs ul li:last-child {
   margin-bottom: 1em;
 }
+
+.docs pre {
+  background-color: transparent !important;
+  overflow: hidden;
+  margin: 1em 0 2em 0;
+}
+
+.docs pre code {
+  -webkit-user-select: all;
+  user-select: all;
+  font-size: 0.8em;
+  line-height: 1.6;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  padding: 1em 1em;
+  overflow-x: auto;
+}
+
+.docs pre code[data-line-numbers] {
+  counter-reset: line-numbering 1;
+}
+
+.docs pre code[data-line-numbers] span[data-line] {
+  counter-increment: line-numbering 1;
+}
+
+.docs pre code[data-line-numbers] span[data-line] {
+  counter-increment: line-numbering 1;
+}
+
+.docs pre code[data-line-numbers] span[data-line]:first-of-type {
+  counter-increment: none;
+}
+.docs pre code[data-line-numbers] span[data-line]::before {
+  content: counter(line-numbering);
+  margin: 0 1.5em 0 0;
+  color: #ccc;
+  width: 1em;
+  display: inline-block;
+  text-align: right;
+}
+
+.dark .docs pre code[data-line-numbers] span[data-line]::before {
+  color: #30363d;
+}
+
+ .dark .docs pre code {
+    border: 1px solid #30363d;
+    background-color: #15181b;
+  }
+
+h2 code {
+  padding: 0 !important;
+  background-color: unset !important;
+  border: none !important;
+}
