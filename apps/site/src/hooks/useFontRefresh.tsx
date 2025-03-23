@@ -6,7 +6,10 @@ export function useFontRefresh() {
   useEffect(() => {
     const checkFont = async () => {
       try {
-        await document.fonts.load("12px JetBrains Mono");
+        await Promise.all([
+          document.fonts.load("12px JetBrains Mono"),
+          document.fonts.load("12px Roboto Condensed"),
+        ]);
         setFontLoaded(true);
       } catch (error) {
         console.error("Error loading font:", error);

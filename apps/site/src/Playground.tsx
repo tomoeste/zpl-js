@@ -81,10 +81,18 @@ export default function Playground() {
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  const isRenderingRef = useRef(false);
+
   const renderZPL = useCallback(
     async (zpl: string) => {
       const canvas = canvasRef.current;
       if (!canvas) return;
+
+      if (isRenderingRef.current) {
+        return;
+      }
+
+      isRenderingRef.current = true;
 
       try {
         const { ZPLParser, ZPLRenderer } = await import("zpl-js");
@@ -98,7 +106,7 @@ export default function Playground() {
 
         const parsedZpl = parser.parse();
         if (parsedZpl.label) {
-          renderer.render(parsedZpl.label);
+          await renderer.render(parsedZpl.label);
         } else if (parsedZpl.errors) {
           toast.error(
             "An error occurred while rendering the ZPL code. See console for details."
@@ -110,6 +118,8 @@ export default function Playground() {
           "An error occurred while rendering the ZPL code. See console for details."
         );
         console.error(err instanceof Error ? err.message : "An error occurred");
+      } finally {
+        isRenderingRef.current = false;
       }
     },
     [dpi, dimensions, orientation, canvasRef]

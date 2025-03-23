@@ -680,6 +680,7 @@ export class ZPLParser {
   };
 
   public parse(): ParsedZPL {
+    console.groupCollapsed("Parsing ZPL");
     this.result = {
       label: null,
       isValid: false,
@@ -737,6 +738,7 @@ export class ZPLParser {
 
     this.result.label = this.label;
     if (this.result.errors?.length === 0) this.result.isValid = true;
+    console.groupEnd();
     return this.result;
   }
 

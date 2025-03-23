@@ -36,6 +36,7 @@ export class ZPLRenderer {
   }
 
   public async render(label: Label): Promise<void> {
+    console.groupCollapsed("Rendering label");
     const labelWidthInches = parseInt(this.options.dimensions.split("x")[0]);
     const labelHeightInches = parseInt(this.options.dimensions.split("x")[1]);
 
@@ -85,13 +86,14 @@ export class ZPLRenderer {
       if (item.type === "Text") {
         this.renderText(item as TextItem);
       } else if (item.type === "Barcode") {
-        this.renderBarcode(item as BarcodeItem, label);
+        await this.renderBarcode(item as BarcodeItem, label);
       } else if (item.type === "GraphicBox") {
         this.renderGraphicBox(item as GraphicBoxItem);
       }
     }
 
     this.ctx.setTransform(1, 0, 0, 1, 0, 0);
+    console.groupEnd();
   }
 
   private renderText(item: TextItem): void {
@@ -104,9 +106,11 @@ export class ZPLRenderer {
     // Configure font
     const fontSize = this.scaleValue(font.height ?? 20);
     const fontFamily =
-      font.fontName === "0" ? "Arial Narrow" : "JetBrains Mono";
+      font.fontName === "0"
+        ? "'Roboto Condensed', Arial, sans-serif"
+        : "'JetBrains Mono', monospace";
     this.ctx.font = `${fontSize}px ${fontFamily}`;
-    if (fontFamily === "Arial Narrow") {
+    if (fontFamily === "'Roboto Condensed', Arial, sans-serif") {
       this.ctx.font = `bold ${this.ctx.font}`;
       data = data.replace("-", " – ");
     }
@@ -145,8 +149,8 @@ export class ZPLRenderer {
     const tempCanvas = document.createElement("canvas");
 
     // Set initial dimensions for the temporary canvas
-    tempCanvas.width = 400; // Give it enough width
-    tempCanvas.height = 200; // Give it enough height
+    tempCanvas.width = this.scaleValue(400); // Give it enough width
+    tempCanvas.height = this.scaleValue(200); // Give it enough height
 
     // Configure bwip-js options based on barcode type and settings
     const barcodeOptions: RenderOptions = {
