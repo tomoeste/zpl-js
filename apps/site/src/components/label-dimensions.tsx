@@ -45,7 +45,9 @@ export function LabelDimensions({ value, setValue }: LabelDimensionsProps) {
         <SelectContent>
           <SelectGroup>
             {dimensions.map((dimension) => (
-              <SelectItem value={dimension.value}>{dimension.label}</SelectItem>
+              <SelectItem value={dimension.value} key={dimension.value}>
+                {dimension.label}
+              </SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>

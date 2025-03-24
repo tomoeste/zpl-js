@@ -41,7 +41,9 @@ export function LabelDPI({ value, setValue }: LabelDPIProps) {
         <SelectContent>
           <SelectGroup>
             {dpi.map((d) => (
-              <SelectItem value={d.value}>{d.label}</SelectItem>
+              <SelectItem value={d.value} key={d.value}>
+                {d.label}
+              </SelectItem>
             ))}
           </SelectGroup>
         </SelectContent>
