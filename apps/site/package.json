@@ -43,7 +43,7 @@
     "jsbarcode": "^3.11.6",
     "lodash.debounce": "^4.0.8",
     "lodash.startcase": "^4.0.8",
-    "lucide-react": "^0.485.0",
+    "lucide-react": "^0.509.0",
     "next-themes": "^0.4.4",
     "pdf-lib": "^1.17.1",
     "react": "^19.0.0",
